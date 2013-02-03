@@ -1,6 +1,7 @@
 package net.kaoriya.speakingclock;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,5 +28,10 @@ public class TestActivity extends Activity
         };
         view.setEnabled(false);
         task.execute(Clock.getSpeakText());
+    }
+
+    public void onClickStartMonitor(View view)
+    {
+        startService(new Intent(this, SpeakingClockService.class));
     }
 }
