@@ -9,8 +9,9 @@ public class SpeakTask extends AsyncTask<String, Void, Boolean>
 {
     public static final String TAG = "SpeakTask";
 
-    public static final long PREPARE_TIMEOUT = 3000;
-    public static final long SPEAK_TIMEOUT = 10000;
+    public static final long PREPARE_WAIT_TIMEOUT = 3000;
+    public static final long SPEAK_WAIT_TIMEOUT = 10000;
+    public static final long SPEAK_WAIT_INTERVAL = 100;
 
     private enum EngineStatus { NONE, PREPARED, FAILED }
 
@@ -74,7 +75,7 @@ public class SpeakTask extends AsyncTask<String, Void, Boolean>
         if (this.status == EngineStatus.NONE) {
             synchronized (this.lockObj) {
                 try {
-                    this.lockObj.wait(PREPARE_TIMEOUT);
+                    this.lockObj.wait(PREPARE_WAIT_TIMEOUT);
                 } catch (InterruptedException e) {
                 }
             }
@@ -86,10 +87,10 @@ public class SpeakTask extends AsyncTask<String, Void, Boolean>
     {
         long start = System.currentTimeMillis();
         while (this.tts.isSpeaking() &&
-                (System.currentTimeMillis() - start) < SPEAK_TIMEOUT)
+                (System.currentTimeMillis() - start) < SPEAK_WAIT_TIMEOUT)
         {
             try {
-                Thread.sleep(100);
+                Thread.sleep(SPEAK_WAIT_INTERVAL);
             } catch (InterruptedException e) {
             }
         }
