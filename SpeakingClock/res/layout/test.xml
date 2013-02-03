@@ -6,12 +6,27 @@
   android:layout_height="match_parent"
   android:gravity="center_vertical"
   >
+
+<TimePicker
+  android:id="@+id/time_picker"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  />
 <Button
+  android:id="@+id/speak_pick_clock"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:text="@string/speak_pick_clock"
+  android:onClick="onClickSpeakPickClock"
+  />
+<Button
+  android:id="@+id/speak_clock"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:text="@string/speak_clock"
   android:onClick="onClickSpeakClock"
   />
+
 <Button
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
@@ -24,4 +39,5 @@
   android:text="@string/stop_monitor"
   android:onClick="onClickStopMonitor"
   />
+
 </LinearLayout>

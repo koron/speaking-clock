@@ -11,12 +11,19 @@ public final class Clock
     public static String getSpeakText(Calendar c) {
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int min = c.get(Calendar.MINUTE);
+        return getSpeakText(hour, min);
+    }
+
+    public static String getSpeakText(int hour, int min) {
         if (min == 0) {
             return String.format("%1$dじちょうどです", hour);
         } else {
             String minText = "ふん";
             switch (min % 10) {
-                case 0: case 1: case 3: case 4: case 6:
+                case 0:
+                    minText = "っぷん";
+                    break;
+                case 1: case 3: case 4: case 6:
                     minText = "ぷん";
                     break;
             }
