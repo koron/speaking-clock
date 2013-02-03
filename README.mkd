@@ -1,1 +1,32 @@
 # Speaking Clock
+
+## コンパイル方法
+
+```sh
+$ cd SpeakingClock
+
+# Generate local.properties at only first time.
+$ android update project -p .
+
+# Build and install debug version.
+$ ant debug install
+```
+
+## 事前準備
+
+1.  本アプリをインストールする
+2.  TTSエンジン (Aquestalk や N2 TTS) をインストールする
+3.  TTSを有効化する: 設定 → 言語と入力 → テキスト読み上げの出力
+
+## 使い方(通常の使い方)
+
+1.  ウィジェットを配置する
+
+    現在はアイコンなどがなく、真っ白な四角(豆腐)が配置される。
+
+2.  画面を消し、再度点けると現在時刻をしゃべるのを確認する
+
+## 使い方(試験用)
+
+1.  ホームメニューから *Speaking Clock* アプリを起動する
+2.  適当にボタンを押して見る
