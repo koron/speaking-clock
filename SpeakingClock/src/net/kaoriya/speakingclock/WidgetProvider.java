@@ -6,9 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 
 public final class WidgetProvider extends AppWidgetProvider
+    implements SpeakingClock
 {
-    public static final String TAG = "SCWidget";
-
     // @implements AppWidgetProvider
     public void onEnabled(Context context) {
         super.onEnabled(context);
@@ -28,7 +27,7 @@ public final class WidgetProvider extends AppWidgetProvider
             int[] ids)
     {
         super.onUpdate(context, manager, ids);
-        // TODO:
+        context.startService(new Intent(context, SpeakingClockService.class));
     }
 
 }

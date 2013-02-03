@@ -3,13 +3,10 @@ package net.kaoriya.speakingclock;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-public class TestActivity extends Activity
+public class TestActivity extends Activity implements SpeakingClock
 {
-    public static String TAG = "SpeakingClock";
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {

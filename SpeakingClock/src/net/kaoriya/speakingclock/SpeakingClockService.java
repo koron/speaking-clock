@@ -9,9 +9,8 @@ import android.os.IBinder;
 import android.util.Log;
 
 public final class SpeakingClockService extends Service
+    implements SpeakingClock
 {
-    public static final String TAG = "SCService";
-
     private class Monitor extends BroadcastReceiver {
 
         private final IntentFilter filter = new IntentFilter();
