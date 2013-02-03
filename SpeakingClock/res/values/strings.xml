@@ -2,4 +2,5 @@
 <resources>
   <string name="app_name">Speaking Clock</string>
   <string name="test_activity_name">Test - Speaking Clock</string>
+  <string name="speak_clock">Speak Clock</string>
 </resources>
