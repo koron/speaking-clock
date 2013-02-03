@@ -34,4 +34,9 @@ public class TestActivity extends Activity
     {
         startService(new Intent(this, SpeakingClockService.class));
     }
+
+    public void onClickStopMonitor(View view)
+    {
+        stopService(new Intent(this, SpeakingClockService.class));
+    }
 }
